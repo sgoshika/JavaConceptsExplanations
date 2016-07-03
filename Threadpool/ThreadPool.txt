@@ -1,0 +1,40 @@
+ThreadPool Concept
+===================
+A class that extends Thread class or implements Runnable is called as Thread.
+If there are 10 such classes each class name is Worker1, Worker2, Worker3... Worker10
+Now to execute all these threads traditionally we need to create the objects for these classes and call the start() 
+on them. As shown below.
+
+Thread t1=new Thread (new Worker1);
+Thread t2=new Thread (new Worker2);
+Thread t3=new Thread (new Worker3);
+Thread t4=new Thread (new Worker4);
+|
+|
+|
+Thread t5=new Thread (new Worker5);
+
+And then we need to call the start() for running all these threads.
+t1.start();
+t2.start();
+t3.start();
+t4.start();
+t5.start();
+|
+|
+|
+t10.start();
+
+By above approach all the 10 threads will be executed at a time so, the execution will be very fast but 
+just imagine if the application needs 500 such threads then all the threads will try to execute at a time 
+which will be a performance issue.
+
+Thread Pools are useful when you need to limit the number of threads running in your application at the same time. 
+There is a performance overhead associated with starting a new thread, and each thread is also allocated some 
+memory in the stack etc.
+
+So, Thread Pool has limited number of threads which can execute these tasks which is more useful.
+
+You can see this difference in the project ThreadPool.
+
+	
